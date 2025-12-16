@@ -1,0 +1,9 @@
+//
+// Created by 29970 on 2023/8/20.
+//
+
+#ifndef AUXILIARY_IMCONFIG_H
+#define AUXILIARY_IMCONFIG_H
+#define IMGUI_USE_WCHAR32
+
+#endif //AUXILIARY_IMCONFIG_H
