@@ -29,7 +29,7 @@ int ImGuiInEGL::InItEGL()
     const EGLint attribs[] = {EGL_BUFFER_SIZE, 32, EGL_RED_SIZE, 8, EGL_GREEN_SIZE, 8,
                               EGL_BLUE_SIZE, 8, EGL_ALPHA_SIZE, 8, EGL_DEPTH_SIZE, 8,
                               EGL_STENCIL_SIZE, 8,
-                              EGL_RENDERABLE_TYPE, EGL_OPENGL_ES2_BIT, EGL_SURFACE_TYPE,
+                              EGL_RENDERABLE_TYPE, EGL_OPENGL_ES3_BIT, EGL_SURFACE_TYPE,
                               EGL_WINDOW_BIT, EGL_NONE};
     EGLint num_config;
     if (!eglGetConfigs(EglDisplay, NULL, 1, &num_config))
@@ -40,7 +40,7 @@ int ImGuiInEGL::InItEGL()
     {
         return -1;
     }
-    int attrib_list[] = {EGL_CONTEXT_CLIENT_VERSION, 2, EGL_NONE};
+    int attrib_list[] = {EGL_CONTEXT_CLIENT_VERSION, 3, EGL_NONE};
     EglContext = eglCreateContext(EglDisplay, EGLConfig, EGL_NO_CONTEXT, attrib_list);
     if (EglContext == EGL_NO_CONTEXT)
     {
@@ -130,7 +130,7 @@ int ImGuiInEGL::InItImGui()
     icons_config.OversampleH = 2.5;
     icons_config.OversampleV = 2.5;
     IM_ASSERT(Io->Fonts != NULL);
-    ImGui::StyleColorsRed();
+    ImGui::StyleColorsClassic();
     return 1;
 }
 

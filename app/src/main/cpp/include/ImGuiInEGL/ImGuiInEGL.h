@@ -33,7 +33,6 @@
 #include <android/native_window_jni.h>
 #include "imgui.h"
 #include "ImGuiInPut.h"
-#include "imguipp.h"
 #include "imgui_internal.h"
 #include "imgui_impl_android.h"
 #include "imgui_impl_opengl3.h"
@@ -46,7 +45,6 @@ private:
     int InItEGL();
 
     int InItImGui();
-
 
     void EGLThread();
 

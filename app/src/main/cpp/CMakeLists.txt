@@ -14,16 +14,17 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_library(ImGui SHARED)
 
 # 添加ImGui的源文件  
-file(GLOB_RECURSE ImGui_SRC "${CMAKE_CURRENT_SOURCE_DIR}/src/ImGui/*.c*"
+file(GLOB_RECURSE ImGui_SRC
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c*"
         "${CMAKE_CURRENT_SOURCE_DIR}/src/ImGuiInEGL/*.c*"
         "${CMAKE_CURRENT_SOURCE_DIR}/src/ImGuiInput/*.c*"
-        "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
 )
 target_sources(ImGui PRIVATE ${ImGui_SRC})
 
 # 添加ImGui的包含目录  
 target_include_directories(ImGui PRIVATE
-        "${CMAKE_CURRENT_SOURCE_DIR}/include/ImGui"
+        "${CMAKE_CURRENT_SOURCE_DIR}/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/include"
         "${CMAKE_CURRENT_SOURCE_DIR}/include/ImGuiInEGL"
         "${CMAKE_CURRENT_SOURCE_DIR}/include/ImGuiInput"
 )
@@ -35,4 +36,4 @@ target_include_directories(ImGui PRIVATE
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -O3 -s -fvisibility=hidden -Wno-unused-command-line-argument -Wno-error=format-security -fpermissive -w -Werror -s -std=c++17 -fno-rtti -fno-exceptions -fms-extensions -Wno-error=c++17-narrowing")
 
 # 设置链接选项
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -llog -lEGL -lGLESv2 -landroid -lz")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -llog -lEGL -lGLESv3 -landroid -lz")
